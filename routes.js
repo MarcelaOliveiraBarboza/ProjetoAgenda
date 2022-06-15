@@ -1,13 +1,7 @@
-//aqui faz o routeamento, vê quais são as rotas e chama um controlador que dicidirá qual view utilizará
-
-//middlewares: depois de passarmos qual o paramentro de rota, os outros parametros são middlewares
-
-// ao  inves de application.get, usa-se route.get
-
 const express = require('express');
-const route = express.Router();//para buscar o expresses de rotas, respostavel por tratar as rotas 
+const route = express.Router(); 
 
-const homeController = require('./src/controllers/homeController');//importou o homeController
+const homeController = require('./src/controllers/homeController');
 const loginController = require('./src/controllers/loginController');
 const contatoController = require('./src/controllers/contatoController');
 
@@ -29,4 +23,4 @@ route.get('/contato/index/:id', loginRequired, contatoController.editIndex);
 route.post('/contato/edit/:id', loginRequired, contatoController.edit);
 route.get('/contato/delete/:id', loginRequired, contatoController.delete);
 
-module.exports = route;//para exportar todas route
+module.exports = route;

@@ -1,26 +1,26 @@
-const path = require('path');//->importei o modulo path
+const path = require('path');
 
 module.exports = {
-    mode: 'development', //modo de desenvolvimento
-    entry: './frontend/index.js',//arquivo de entrada e seu caminho
+    mode: 'development', 
+    entry: './frontend/index.js',
 
     output: {
         path: path.resolve(__dirname, 'public', 'assets', 'js'),
         filename: 'bundle.js'
-    }, //saida e o caminho para chegar na pasta de saida
+    }, 
 
     module: {
-        rules: [{//array com obj para as regras
-            exclude: /node_modules/,//para o webpack não ficar verificando essa pasta pq ela é muito extensa
+        rules: [{
+            exclude: /node_modules/,
 
-            test: /\.js$/, //testar qual arquivo que vai ler
+            test: /\.js$/, 
 
             use: {
                 loader: 'babel-loader',
                 options: {
                     presets: ['@babel/env']
                 }
-            }//oq irá usar
+            }
 
         }, {
             test: /\.css$/,
@@ -28,7 +28,7 @@ module.exports = {
         }]
     },
 
-    devtool: 'source-map'// faz mapeamento para erros, e fala diretamento onde está o erros
+    devtool: 'source-map'
 
 
-};//para exportar o obj que é a confg do webpack
+};

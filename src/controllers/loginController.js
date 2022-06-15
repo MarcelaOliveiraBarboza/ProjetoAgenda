@@ -14,7 +14,7 @@ exports.register = async function(req, res) {
       req.flash('errors', login.errors);
       req.session.save(function() {
         return res.redirect('back');
-      });//voltar para a página em caso de erro
+      });
       return;
     }
 
@@ -26,7 +26,7 @@ exports.register = async function(req, res) {
     console.log(e);
     return res.render('404');
   }
-};//para ter uma mensagem quando o email for colocado
+};
 
 exports.login = async function(req, res) {
   try {

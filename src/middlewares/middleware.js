@@ -1,7 +1,5 @@
-//em todo middleware necessita de nexta para a requisão terminar
-
 exports.middlewareGlobal = (req, res, next) => {
-    res.locals.errors = req.flash('errors');//uma forma de injetar conteudo no ejs sem ser por obj como no homeControllers. e essa fica disponivel para qualquer pagina, pois não tem rota na pag. server.js em ->> app.use(middlewareGlobal)
+    res.locals.errors = req.flash('errors');
     res.locals.success = req.flash('success');
     res.locals.user = req.session.user;
     next();
@@ -17,7 +15,7 @@ exports.middlewareGlobal = (req, res, next) => {
     }
   
     next();
-  };//uma função para checar os possiveis erros de csrf. se tiver qualqer um, mostre 404
+  };
   
   exports.csrfMiddleware = (req, res, next) => {
     res.locals.csrfToken = req.csrfToken();
